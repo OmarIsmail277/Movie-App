@@ -3,6 +3,8 @@
     <img
       [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
       [class.blur-image]="shouldHide(movie)"
+      [routerLink]="['/details', movie.id]"
+      style="cursor:pointer;"
     />
     <p-knob
       [(ngModel)]="votePercent"

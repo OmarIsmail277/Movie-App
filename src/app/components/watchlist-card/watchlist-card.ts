@@ -44,12 +44,12 @@ export class WatchlistCard {
     const rating = this.movie.vote_average || 0;
     const maxStars = 5;
     const filledStars = Math.round(rating / 2); // Convert 10-point scale to 5-point scale
-    
+
     const stars: string[] = [];
     for (let i = 0; i < maxStars; i++) {
       stars.push(i < filledStars ? 'filled' : 'empty');
     }
-    
+
     return stars;
   }
-} 
+}

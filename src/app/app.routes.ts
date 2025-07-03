@@ -21,4 +21,9 @@ export const routes: Routes = [
         (m) => m.SearchResults
       ),
   },
+  {
+    path: 'details/:id',
+    loadComponent: () =>
+      import('../../src/app/components/details/details').then((m) => m.Details),
+  },
 ];

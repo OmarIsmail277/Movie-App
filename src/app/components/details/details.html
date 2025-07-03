@@ -1,1 +1,37 @@
-<p>details works!</p>
+<div class="container">
+  <div class="details-layout">
+    <figure class="image-wrapper">
+      <img
+        *ngIf="movie?.poster_path"
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        [alt]="movie?.title"
+      />
+    </figure>
+
+    <div class="details-info">
+      <h2>{{ movie?.title }}</h2>
+      <p><strong>Release Date:</strong> {{ movie?.release_date }}</p>
+      <div class="rating-section">
+        <div class="stars">
+          <i
+            *ngFor="let star of getStars()"
+            [class]="star === 'filled' ? 'pi pi-star-fill' : 'pi pi-star'"
+            [style.color]="star === 'filled' ? '#ffe353' : '#ddd'"
+          ></i>
+        </div>
+        <p class="vote-count">{{movie.vote_count}}</p>
+      </div>
+
+      <div class="overview" *ngIf="movie.overview">
+        <p>{{ movie.overview }}</p>
+      </div>
+      <p><strong>Genres:</strong> {{ genreNames }}</p>
+      <p>
+        <strong>Duration:</strong> {{ movie?.runtime ? movie.runtime + ' min' :
+        'N/A' }}
+      </p>
+      <p><strong>Languages:</strong> {{ languageNames }}</p>
+      <p><strong>Production Companies:</strong> {{ companyNames }}</p>
+    </div>
+  </div>
+</div>

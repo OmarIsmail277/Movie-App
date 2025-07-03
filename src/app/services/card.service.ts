@@ -27,4 +27,9 @@ export class CardService {
     }&query=${encodeURIComponent(query)}`;
     return this.http.get<{ results: any[] }>(url);
   }
+
+  public getMovieDetails(id: number) {
+    const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}`;
+    return this.http.get<any>(url);
+  }
 }
