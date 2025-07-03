@@ -1,0 +1,33 @@
+<div class="card">
+  <figure class="image-wrapper">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      [class.blur-image]="shouldHide(movie)"
+    />
+    <p-knob
+      [(ngModel)]="votePercent"
+      [step]="1"
+      [min]="0"
+      [style]="{ 'pointer-events': 'none' }"
+      [max]="100"
+      [strokeWidth]="10"
+      [showValue]="true"
+      [valueTemplate]="'{value}%'"
+      [size]="45"
+      valueColor="{{ knobColor }}"
+      rangeColor="#333"
+    >
+    </p-knob>
+  </figure>
+
+  <div class="info">
+    <h3>{{ getSafeTitle(movie) }}</h3>
+    <div class="date__fav">
+      <p>{{movie.release_date | date: 'MMM d, y'}}</p>
+
+      <button class="watchlist-btn" (click)="toggleWatchList()">
+        <i [ngClass]="isInWatchList() ? 'pi pi-heart-fill':'pi pi-heart' "></i>
+      </button>
+    </div>
+  </div>
+</div>

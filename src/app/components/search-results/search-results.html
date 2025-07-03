@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="search-bar">
+    <app-search></app-search>
+  </div>
+  <h2>Results for "{{ query }}"</h2>
+
+  <div class="cards__container" *ngIf="movies().length; else noResults">
+    <app-movie-card
+      *ngFor="let movie of movies()"
+      [movie]="movie"
+    ></app-movie-card>
+  </div>
+
+  <ng-template #noResults>
+    <p>No results found.</p>
+  </ng-template>
+</div>

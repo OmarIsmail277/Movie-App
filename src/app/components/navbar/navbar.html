@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <a routerLink="/" class="app__logo">
+    <h3>Movie App</h3>
+  </a>
+
+  <div class="lang__watchlist">
+    <p-dropdown
+      class="lang"
+      [options]="languages"
+      [(ngModel)]="selectedLanguage"
+      optionLabel="name"
+      placeholder="Select Language"
+    >
+    </p-dropdown>
+
+    <a routerLink="/watchlist" title="Watchlist" class="watchlist">
+      <span class="watchlist-badge" *ngIf="watchlistCount > 0">{{ watchlistCount }}</span>
+      <i class="pi pi-heart-fill"></i>
+      <h3>watchlist</h3>
+    </a>
+  </div>
+</nav>

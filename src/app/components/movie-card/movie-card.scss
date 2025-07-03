@@ -1,0 +1,80 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  figure.image-wrapper {
+    position: relative;
+    img {
+      width: 100%;
+      border-radius: 0.8125rem;
+    }
+    p-knob {
+      position: absolute;
+      z-index: 100;
+      background-color: black;
+      border-radius: 50px;
+      bottom: -1rem;
+      left: 1rem;
+      height: 45px;
+      width: 45px;
+    }
+    ::ng-deep .p-knob-text {
+      fill: #fff;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    h3 {
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+    .date__fav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        font-weight: 300;
+        color: #6b6b6b;
+        font-size: 0.8rem;
+        margin-top: 0.15rem;
+      }
+      .watchlist-btn {
+        background: none;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        color: #ffe353;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        margin-left: 4px;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        cursor: pointer;
+        &:hover {
+          background: #fff9dc;
+          color: #d1a400;
+          transform: scale(1.1);
+        }
+      }
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+.blur-image {
+  filter: blur(12px);
+  opacity: 0.4;
+}

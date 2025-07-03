@@ -1,0 +1,68 @@
+@import "../../../styles.scss";
+
+.navbar {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.0625rem 1.75rem;
+  margin-bottom: 1.2rem;
+
+  .app__logo {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #333;
+    }
+  }
+
+  .lang__watchlist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    .lang {
+      background-color: transparent;
+      border: none;
+    }
+
+    .watchlist {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+
+      .watchlist-badge {
+        position: absolute;
+        top: -1rem;
+        right: -2rem;
+        transform: translateX(-50%);
+        background: #fff;
+        color: #000;
+        font-size: 0.85rem;
+        font-weight: bold;
+        padding: 0.15em 0.6em;
+        border-radius: 3px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+        z-index: 2;
+        pointer-events: none;
+        min-width: 1.5em;
+        text-align: center;
+      }
+      i {
+        color: #292d32;
+        font-size: 1.8125rem;
+      }
+    }
+  }
+}

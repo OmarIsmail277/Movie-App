@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Watchlist</h2>
+  <div class="cards__container">
+    <app-watchlist-card
+      *ngFor="let movie of watchlist()"
+      [movie]="movie"
+    ></app-watchlist-card>
+  </div>
+</div>

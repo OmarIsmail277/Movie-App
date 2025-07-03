@@ -1,0 +1,35 @@
+<div class="watchlist-card">
+  <figure class="image-wrapper">
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+      [class.blur-image]="shouldHide(movie)"
+      [alt]="movie.title"
+    />
+  </figure>
+
+  <div class="info">
+    <div class="title__heart">
+      <h1>{{ getSafeTitle(movie) }}</h1>
+      <i class="pi pi-heart-fill"></i>
+    </div>
+    <div class="date__fav">
+      <p>{{movie.release_date | date: 'MMM d, y'}}</p>
+    </div>
+
+    <div class="rating-section">
+      <div class="stars">
+        <i
+          *ngFor="let star of getStars()"
+          [class]="star === 'filled' ? 'pi pi-star-fill' : 'pi pi-star'"
+          [style.color]="star === 'filled' ? '#ffe353' : '#ddd'"
+        ></i>
+      </div>
+      <p class="vote-count">{{movie.vote_count}}</p>
+    </div>
+
+    <!-- Overview section -->
+    <div class="overview" *ngIf="movie.overview">
+      <p>{{ movie.overview }}</p>
+    </div>
+  </div>
+</div>
