@@ -32,4 +32,9 @@ export class CardService {
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}`;
     return this.http.get<any>(url);
   }
+
+  public getRecommendations(id: number) {
+    const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${this.API_KEY}`;
+    return this.http.get<{ results: any[] }>(url);
+  }
 }

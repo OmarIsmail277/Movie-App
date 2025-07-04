@@ -1,0 +1,69 @@
+.container {
+  h2 {
+    margin-top: 3.875rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .cards__container {
+    margin-bottom: 3.65rem;
+
+    // Ensure movie cards work properly in carousel
+    app-movie-card {
+      width: 100% !important;
+      max-width: 280px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+// PrimeNG Carousel specific styling
+::ng-deep .p-carousel {
+  .p-carousel-indicators {
+    margin-top: 1rem;
+
+    .p-carousel-indicator {
+      button {
+        background-color: #e5e7eb;
+        border: none;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        margin: 0 4px;
+        transition: background-color 0.2s;
+
+        &.p-highlight {
+          background-color: #facc15;
+        }
+      }
+    }
+  }
+
+  .p-carousel-prev,
+  .p-carousel-next {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px #facc15;
+    }
+  }
+}
+
+::ng-deep .p-carousel-item {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}

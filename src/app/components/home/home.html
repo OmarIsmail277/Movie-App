@@ -1,25 +1,50 @@
 <div class="container">
   <app-hero></app-hero>
-  <h2>Now Playing</h2>
-  <div class="cards__container">
-    <app-movie-card
-      *ngFor="let movie of movies()"
-      [movie]="movie"
-    ></app-movie-card>
-  </div>
+  <p-tabs value="0">
+    <p-tablist>
+      <p-tab value="0">Header I</p-tab>
+      <p-tab value="1">Header II</p-tab>
+    </p-tablist>
 
-  <!-- Pagination -->
-  <div class="pagination-container">
-    <p-paginator
-      [rows]="rows"
-      [totalRecords]="totalRecords"
-      [showCurrentPageReport]="true"
-      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} movies"
-      [showPageLinks]="true"
-      [showFirstLastIcon]="true"
-      [rowsPerPageOptions]="[20]"
-      (onPageChange)="onPageChange($event)"
-    >
-    </p-paginator>
-  </div>
+    <p-tabpanels>
+      <p-tabpanel value="0">
+        <div class="movies__tab">
+          <h2>Now Playing</h2>
+          <div class="cards__container">
+            <app-movie-card
+              *ngFor="let movie of movies()"
+              [movie]="movie"
+            ></app-movie-card>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-container">
+            <p-paginator
+              [rows]="rows"
+              [totalRecords]="totalRecords"
+              [showCurrentPageReport]="true"
+              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} movies"
+              [showPageLinks]="true"
+              [showFirstLastIcon]="true"
+              [rowsPerPageOptions]="[20]"
+              (onPageChange)="onPageChange($event)"
+            >
+            </p-paginator>
+          </div>
+        </div>
+      </p-tabpanel>
+
+      <p-tabpanel value="1">
+        <p class="m-0">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
+          qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit,
+          sed quia non numquam eius modi.
+        </p>
+      </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
 </div>

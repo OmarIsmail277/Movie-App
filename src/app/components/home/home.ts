@@ -10,6 +10,7 @@ import { Navbar } from '../navbar/navbar';
 import { Search } from '../search/search';
 import { PaginatorModule } from 'primeng/paginator';
 import { Hero } from '../hero/hero';
+import { TabsModule } from 'primeng/tabs';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +25,7 @@ import { Hero } from '../hero/hero';
     Search,
     PaginatorModule,
     Hero,
+    TabsModule,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',

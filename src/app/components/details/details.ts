@@ -3,10 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { inject } from '@angular/core';
 import { CardService } from '../../services/card.service';
 import { CommonModule } from '@angular/common';
+import { Recommendations } from '../recommendations/recommendations';
 
 @Component({
   selector: 'app-details',
-  imports: [CommonModule],
+  imports: [CommonModule, Recommendations],
   templateUrl: './details.html',
   styleUrl: './details.scss',
 })
