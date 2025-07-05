@@ -22,7 +22,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'details/:id',
+    path: 'details/:type/:id',
     loadComponent: () =>
       import('../../src/app/components/details/details').then((m) => m.Details),
   },

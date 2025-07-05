@@ -9,8 +9,15 @@
       [autoplayInterval]="3000"
       [responsiveOptions]="responsiveOptions"
     >
-      <ng-template pTemplate="item" let-movie>
-        <app-movie-card [movie]="movie"></app-movie-card>
+      <ng-template pTemplate="item" let-item>
+        <app-movie-card
+          *ngIf="mediaType === 'movie'"
+          [movie]="item"
+        ></app-movie-card>
+        <app-tv-shows-card
+          *ngIf="mediaType === 'tv'"
+          [show]="item"
+        ></app-tv-shows-card>
       </ng-template>
     </p-carousel>
   </div>

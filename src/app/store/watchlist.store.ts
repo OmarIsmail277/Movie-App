@@ -1,38 +1,47 @@
 import { inject, signal } from '@angular/core';
 import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
-import { Movie } from '../models/movie.model';
+
+// Generic interface for both movies and TV shows
+export interface MediaItem {
+  id: number;
+  title: string;
+  release_date: string;
+  poster_path: string;
+  vote_average: number;
+  overview?: string;
+}
 
 export const WatchlistStore = signalStore(
   { providedIn: 'root' },
 
   // ✅ STATE
   withState(() => ({
-    movies: [] as Movie[],
+    movies: [] as MediaItem[],
   })),
 
   // ✅ METHODS
   withMethods((state) => ({
-    addToWatchList(movie: Movie) {
-      const exists = state.movies().some((m) => m.id === movie.id);
+    addToWatchList(item: MediaItem) {
+      const exists = state.movies().some((m) => m.id === item.id);
       if (!exists) {
         patchState(state, {
-          movies: [...state.movies(), movie],
+          movies: [...state.movies(), item],
         });
       }
     },
 
-    removeFromWatchList(movie: Movie) {
+    removeFromWatchList(item: MediaItem) {
       patchState(state, {
-        movies: state.movies().filter((m) => m.id !== movie.id),
+        movies: state.movies().filter((m) => m.id !== item.id),
       });
     },
 
-    toggleWatchList(movie: Movie) {
-      const exists = state.movies().some((m) => m.id === movie.id);
+    toggleWatchList(item: MediaItem) {
+      const exists = state.movies().some((m) => m.id === item.id);
       patchState(state, {
         movies: exists
-          ? state.movies().filter((m) => m.id !== movie.id)
-          : [...state.movies(), movie],
+          ? state.movies().filter((m) => m.id !== item.id)
+          : [...state.movies(), item],
       });
     },
   }))

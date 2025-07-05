@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Search } from '../search/search';
 
 @Component({
@@ -7,4 +7,6 @@ import { Search } from '../search/search';
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
-export class Hero {}
+export class Hero {
+  @Input() activeTabValue: number = 0;
+}

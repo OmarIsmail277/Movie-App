@@ -1,9 +1,9 @@
 <div class="card">
   <figure class="image-wrapper">
     <img
-      [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-      [class.blur-image]="shouldHide(movie)"
-      [routerLink]="['/details','movie', movie.id]"
+      [src]="'https://image.tmdb.org/t/p/w500' + show.poster_path"
+      [class.blur-image]="shouldHide(show)"
+      [routerLink]="['/details', 'tv', show.id]"
       style="cursor: pointer"
     />
     <p-knob
@@ -23,9 +23,9 @@
   </figure>
 
   <div class="info">
-    <h3>{{ getSafeTitle(movie) }}</h3>
+    <h3>{{ getSafeTitle(show) }}</h3>
     <div class="date__fav">
-      <p>{{movie.release_date | date: 'MMM d, y'}}</p>
+      <p>{{show.release_date | date: 'MMM d, y'}}</p>
 
       <button class="watchlist-btn" (click)="toggleWatchList()">
         <i [ngClass]="isInWatchList() ? 'pi pi-heart-fill':'pi pi-heart' "></i>

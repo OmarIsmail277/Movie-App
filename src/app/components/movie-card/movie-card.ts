@@ -48,9 +48,11 @@ export class MovieCard {
   get knobColor(): string {
     return this.votePercent <= 70 ? '#bbbd2c' : '#21d07a'; // yellow or green
   }
+
   shouldHide(movie: any): boolean {
     return this.badMovieIds.includes(movie.id);
   }
+
   getSafeTitle(movie: any): string {
     return this.shouldHide(movie)
       ? '❗ Title hidden due to inappropriate images or movie name 🚫⛔'

@@ -1,14 +1,24 @@
 <div class="container">
   <div class="search-bar">
-    <app-search></app-search>
+    <app-search [activeTabValue]="mediaType === 'tv' ? 1 : 0"></app-search>
   </div>
   <h2>Results for "{{ query }}"</h2>
 
-  <div class="cards__container" *ngIf="movies().length; else noResults">
-    <app-movie-card
-      *ngFor="let movie of movies()"
-      [movie]="movie"
-    ></app-movie-card>
+  <div class="cards__container" *ngIf="results().length; else noResults">
+    <ng-container *ngIf="mediaType === 'movie'">
+      <app-movie-card
+        *ngFor="let item of results()"
+        [movie]="item"
+      ></app-movie-card>
+    </ng-container>
+
+    <!-- TV Shows -->
+    <ng-container *ngIf="mediaType === 'tv'">
+      <app-tv-shows-card
+        *ngFor="let item of results()"
+        [show]="item"
+      ></app-tv-shows-card>
+    </ng-container>
   </div>
 
   <ng-template #noResults>

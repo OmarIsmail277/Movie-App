@@ -2,15 +2,15 @@
   <div class="details-layout">
     <figure class="image-wrapper">
       <img
-        *ngIf="movie?.poster_path"
-        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-        [alt]="movie?.title"
+        *ngIf="item?.poster_path"
+        [src]="'https://image.tmdb.org/t/p/w500' + item.poster_path"
+        [alt]="item?.title"
       />
     </figure>
 
     <div class="details-info">
-      <h2>{{ movie?.title }}</h2>
-      <p><strong>Release Date:</strong> {{ movie?.release_date }}</p>
+      <h2>{{ item?.title }}</h2>
+      <p><strong>Release Date:</strong> {{ item?.release_date }}</p>
       <div class="rating-section">
         <div class="stars">
           <i
@@ -19,23 +19,20 @@
             [style.color]="star === 'filled' ? '#ffe353' : '#ddd'"
           ></i>
         </div>
-        <p class="vote-count">{{movie.vote_count}}</p>
+        <p class="vote-count">{{item.vote_count}}</p>
       </div>
 
-      <div class="overview" *ngIf="movie.overview">
-        <p>{{ movie.overview }}</p>
+      <div class="overview" *ngIf="item.overview">
+        <p>{{ item.overview }}</p>
       </div>
       <p><strong>Genres:</strong> {{ genreNames }}</p>
-      <p>
-        <strong>Duration:</strong> {{ movie?.runtime ? movie.runtime + ' min' :
-        'N/A' }}
-      </p>
+      <p><strong>Duration:</strong> {{ durationText }}</p>
       <p><strong>Languages:</strong> {{ languageNames }}</p>
       <p><strong>Production Companies:</strong> {{ companyNames }}</p>
     </div>
   </div>
 
   <div class="recommendations">
-    <app-recommendations></app-recommendations>
+    <app-recommendations [mediaType]="mediaType"></app-recommendations>
   </div>
 </div>
