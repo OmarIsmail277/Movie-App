@@ -1,0 +1,188 @@
+.announcement-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+      rgba(255, 255, 255, 0.1) 25%, 
+      transparent 25%, 
+      transparent 50%, 
+      rgba(255, 255, 255, 0.1) 50%, 
+      rgba(255, 255, 255, 0.1) 75%, 
+      transparent 75%, 
+      transparent);
+    background-size: 20px 20px;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .announcement-content {
+    max-width: 1403px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+
+  .flag-container {
+    flex-shrink: 0;
+  }
+
+  .palestine-flag {
+    width: 60px;
+    height: 40px;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    animation: flag-wave 3s ease-in-out infinite;
+
+    .flag-stripe {
+      height: 33.33%;
+      width: 100%;
+      
+      &.black {
+        background-color: #000000;
+      }
+      
+      &.white {
+        background-color: #FFFFFF;
+      }
+      
+      &.green {
+        background-color: #009736;
+      }
+    }
+
+    .flag-triangle {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 20px 0 20px 25px;
+      border-color: transparent transparent transparent #CE1126;
+    }
+  }
+
+  .message {
+    flex: 1;
+    text-align: center;
+
+    h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: pulse 2s ease-in-out infinite;
+
+      @media (max-width: 768px) {
+        font-size: 1.2rem;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.9;
+      font-weight: 500;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .symbols {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+
+    .symbol {
+      font-size: 1.5rem;
+      animation: bounce 2s ease-in-out infinite;
+      
+      &:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      
+      &:nth-child(3) {
+        animation-delay: 1s;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes shimmer {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes flag-wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+// RTL Support
+[dir="rtl"] .announcement-banner {
+  .announcement-content {
+    flex-direction: row-reverse;
+  }
+  
+  .palestine-flag .flag-triangle {
+    left: auto;
+    right: 0;
+    border-width: 20px 25px 20px 0;
+    border-color: transparent #CE1126 transparent transparent;
+  }
+} 
